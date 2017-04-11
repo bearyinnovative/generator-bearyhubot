@@ -73,7 +73,7 @@ var HubotGenerator = yeoman.generators.Base.extend({
     return this._.slugify(this.appname);
   },
 
-  defaultAdapter: 'campfire',
+  defaultAdapter: 'bearychat',
   defaultDescription: 'A simple helpful robot for your Company',
 
 
