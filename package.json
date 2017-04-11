@@ -1,10 +1,10 @@
 {
-  "name": "generator-hubot",
-  "version": "0.4.0",
-  "description": "Hubot generator for Yeoman",
+  "name": "generator-bearyhubot",
+  "version": "0.0.1",
+  "description": "Hubot generator for Yeoman (bearychat version)",
   "license": "MIT",
   "main": "generators/app/index.js",
-  "repository": "github/generator-hubot",
+  "repository": "github/bearyinnovaitve/generator-bearyhubot",
   "author": {
     "name": "Josh Nichols",
     "email": "josh@technicalpickles.com",
@@ -22,7 +22,8 @@
   "keywords": [
     "yeoman-generator",
     "hubot",
-    "hubot-script"
+    "hubot-script",
+    "bearychat"
   ],
   "dependencies": {
     "yeoman-generator": "^0.17.0",
