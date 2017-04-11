@@ -8,7 +8,7 @@
 //
 //   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
-export default function(robot) {
+module.exports = function(robot) {
 
 // robot.hear(/badger/i, res => res.send("Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"));
 //
