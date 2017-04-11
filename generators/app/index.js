@@ -75,6 +75,7 @@ var HubotGenerator = yeoman.generators.Base.extend({
 
   defaultAdapter: 'campfire',
   defaultDescription: 'A simple helpful robot for your Company',
+  defaultLanguage: "js",
 
 
   constructor: function () {
@@ -101,6 +102,11 @@ var HubotGenerator = yeoman.generators.Base.extend({
       type: String
     });
 
+    this.option('language', {
+      desc: "Use CoffeeScript or JavaScript script your robot?",
+      type: String
+    });
+
     this.option('defaults', {
       desc: "Accept defaults and don't prompt for user input",
       type: Boolean
@@ -111,6 +117,7 @@ var HubotGenerator = yeoman.generators.Base.extend({
       this.options.name = this.options.name || this.determineDefaultName();
       this.options.adapter = this.options.adapter || this.defaultAdapter;
       this.options.description = this.options.description || this.defaultDescription;
+      this.options.language = this.options.language || this.defaultLanguage;
     }
 
     if (this.options.owner == true) {
@@ -238,7 +245,36 @@ var HubotGenerator = yeoman.generators.Base.extend({
 
         done();
       }.bind(this));
+    },
+    askForLanguage: function() {
+      var done = this.async();
+
+      var prompts = [];
+      // FIXME validate argument like we do when prompting
+      if (! this.options.language) {
+        prompts.push({
+          name: 'language',
+          message: 'Script Language (coffee/js)',
+          default: this.defaultLanguage,
+          validate: function (language) {
+            var done = this.async();
+            if (['coffee', 'js'].indexOf(language) === -1) {
+              done("Support coffee or js Only");
+              return;
+            } else {
+              done(null, true);
+            }
+          }
+        });
+      }
+
+      this.prompt(prompts, function (props) {
+        this.language = this.options.language || props.language;
+
+        done();
+      }.bind(this));
     }
+
   },
 
   writing: {
@@ -256,7 +292,7 @@ var HubotGenerator = yeoman.generators.Base.extend({
       this.copy('gitignore', '.gitignore');
       this.template('_package.json', 'package.json');
 
-      this.directory('scripts', 'scripts');
+      this.copy(`scripts/example.${this.language}`, `scripts/example.${this.language}`);
     },
 
     projectfiles: function () {
