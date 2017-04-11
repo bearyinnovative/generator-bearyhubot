@@ -1,6 +1,6 @@
 {
   "name": "generator-bearyhubot",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Hubot generator for Yeoman (bearychat version)",
   "license": "MIT",
   "main": "generators/app/index.js",
