@@ -134,16 +134,9 @@ var HubotGenerator = yeoman.generators.Base.extend({
     this.pkg = require('../../package.json');
 
     this.externalScripts = [
-      'hubot-diagnostics',
       'hubot-help',
-      'hubot-heroku-keepalive',
-      'hubot-google-images',
-      'hubot-google-translate',
-      'hubot-pugme',
-      'hubot-maps',
       'hubot-redis-brain',
       'hubot-rules',
-      'hubot-shipit'
     ];
 
     this.hubotScripts = [
